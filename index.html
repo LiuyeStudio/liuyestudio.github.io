@@ -1,1 +1,275 @@
-<p>try</p>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>流叶科技工作室</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F8B6D',
+                        secondary: '#F7F8FA',
+                        dark: '#121212',
+                        muted: '#8A8A8A',
+                        border: '#EBEBEB'
+                    },
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .scroll-smooth { scroll-behavior: smooth; }
+            .section-fade {
+                opacity: 0;
+                transform: translateY(40px);
+                transition: opacity 1.4s ease, transform 1.4s ease;
+            }
+            .section-fade.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .card-hover {
+                transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+                background: #ffffff;
+            }
+        }
+        html {
+            scroll-snap-type: y mandatory;
+            scroll-padding-top: 70px;
+        }
+        body {
+            scroll-behavior: smooth;
+        }
+        .screen {
+            scroll-snap-align: start;
+            min-height: calc(100vh - 70px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+        @media (max-width:768px) {
+            .screen {
+                padding: 1.5rem 1rem;
+                min-height: calc(100vh - 70px);
+            }
+            html {
+                scroll-snap-type: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-white font-sans text-dark scroll-smooth">
+    <!-- 顶部导航 -->
+    <header class="sticky top-0 z-50 bg-white border-b border-border h-[70px] flex items-center">
+        <div class="max-w-4xl mx-auto px-5 w-full flex justify-between items-center">
+            <div class="text-lg font-semibold text-primary">流叶科技工作室</div>
+            <nav class="hidden md:flex gap-6">
+                <a href="#home" class="text-sm text-muted hover:text-primary transition-colors">首页</a>
+                <a href="#about" class="text-sm text-muted hover:text-primary transition-colors">关于</a>
+                <a href="#projects" class="text-sm text-muted hover:text-primary transition-colors">项目</a>
+                <a href="#stack" class="text-sm text-muted hover:text-primary transition-colors">技术</a>
+                <a href="#join" class="text-sm px-4 py-1.5 bg-primary text-white rounded-full">加入</a>
+            </nav>
+            <div class="md:hidden flex items-center gap-3">
+                <a href="#join" class="text-xs px-3 py-1 bg-primary text-white rounded-full">加入</a>
+                <button id="menuBtn" class="text-dark text-xl">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 移动端菜单 -->
+    <div id="mobileMenu" class="fixed inset-0 bg-white z-50 flex items-center justify-center flex-col gap-6 text-lg hidden">
+        <button id="closeMenu" class="absolute top-6 right-6 text-2xl">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <a href="#home" class="text-dark">首页</a>
+        <a href="#about" class="text-dark">关于</a>
+        <a href="#projects" class="text-dark">项目</a>
+        <a href="#stack" class="text-dark">技术</a>
+        <a href="#join" class="px-5 py-2 bg-primary text-white rounded-full">加入我们</a>
+    </div>
+
+    <!-- 首页 -->
+    <section id="home" class="screen section-fade bg-gradient-to-b from-white to-secondary/30">
+        <div class="max-w-3xl mx-auto w-full text-center px-6">
+            <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-5 text-dark">流叶科技工作室</h1>
+            <p class="text-muted text-base md:text-lg mb-8">专注技术交流 · 持续创造价值｜2023年6月23日成立</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#join" class="px-7 py-3 bg-primary text-white rounded-full hover:opacity-90 transition-opacity shadow-sm">加入交流群</a>
+                <a href="#projects" class="px-7 py-3 border border-border rounded-full hover:border-primary hover:text-primary transition-colors">浏览项目</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section id="about" class="screen section-fade bg-white">
+        <div class="max-w-3xl mx-auto w-full px-6">
+            <h2 class="text-2xl md:text-3xl font-bold mb-3 text-center">工作室介绍</h2>
+            <p class="text-muted text-center mb-12 text-sm md:text-base">了解我们的理念与方向</p>
+            <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8">
+                <div class="p-6 rounded-xl bg-gradient-to-br from-secondary to-white shadow-sm card-hover">
+                    <i class="fa-solid fa-lightbulb text-primary text-3xl mb-5"></i>
+                    <h3 class="font-semibold text-lg mb-3">技术交流</h3>
+                    <p class="text-sm text-muted">分享经验、共同学习、互助提升</p>
+                </div>
+                <div class="p-6 rounded-xl bg-gradient-to-br from-secondary to-white shadow-sm card-hover">
+                    <i class="fa-solid fa-code text-primary text-3xl mb-5"></i>
+                    <h3 class="font-semibold text-lg mb-3">项目实践</h3>
+                    <p class="text-sm text-muted">从实战中积累、从协作中成长</p>
+                </div>
+                <div class="p-6 rounded-xl bg-gradient-to-br from-secondary to-white shadow-sm card-hover sm:col-span-2 md:col-span-1">
+                    <i class="fa-solid fa-rocket text-primary text-3xl mb-5"></i>
+                    <h3 class="font-semibold text-lg mb-3">持续创新</h3>
+                    <p class="text-sm text-muted">保持热爱、追求极致、不断突破</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目展示 -->
+    <section id="projects" class="screen section-fade bg-gradient-to-b from-secondary/50 to-secondary">
+        <div class="max-w-3xl mx-auto w-full px-6">
+            <h2 class="text-2xl md:text-3xl font-bold mb-3 text-center">项目展示</h2>
+            <p class="text-muted text-center mb-12 text-sm md:text-base">我们打造的优质产品</p>
+            <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
+                <div class="bg-white rounded-xl p-6 border border-border shadow-sm card-hover">
+                    <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-globe text-primary"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">企业官网系统</h3>
+                    <p class="text-sm text-muted mb-5">极简风格、响应式、全设备适配</p>
+                    <a href="#" class="text-primary text-sm font-medium">查看详情</a>
+                </div>
+                <div class="bg-white rounded-xl p-6 border border-border shadow-sm card-hover">
+                    <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-users text-primary"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">技术社区平台</h3>
+                    <p class="text-sm text-muted mb-5">发帖、评论、点赞、交流一体化</p>
+                    <a href="#" class="text-primary text-sm font-medium">查看详情</a>
+                </div>
+                <div class="bg-white rounded-xl p-6 border border-border shadow-sm card-hover sm:col-span-2 md:col-span-1">
+                    <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-mobile text-primary"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">工具类小程序</h3>
+                    <p class="text-sm text-muted mb-5">轻量化、高效率、即用即走</p>
+                    <a href="#" class="text-primary text-sm font-medium">查看详情</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技术栈 -->
+    <section id="stack" class="screen section-fade bg-white">
+        <div class="max-w-3xl mx-auto w-full px-6">
+            <h2 class="text-2xl md:text-3xl font-bold mb-3 text-center">核心技术栈</h2>
+            <p class="text-muted text-center mb-12 text-sm md:text-base">我们使用的主流技术</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="p-4 rounded-lg bg-secondary flex flex-col items-center card-hover">
+                    <i class="fa-brands fa-html5 text-3xl text-primary mb-3"></i>
+                    <p class="text-sm font-medium">HTML5</p>
+                </div>
+                <div class="p-4 rounded-lg bg-secondary flex flex-col items-center card-hover">
+                    <i class="fa-brands fa-css3-alt text-3xl text-primary mb-3"></i>
+                    <p class="text-sm font-medium">CSS3</p>
+                </div>
+                <div class="p-4 rounded-lg bg-secondary flex flex-col items-center card-hover">
+                    <i class="fa-brands fa-js text-3xl text-primary mb-3"></i>
+                    <p class="text-sm font-medium">JavaScript</p>
+                </div>
+                <div class="p-4 rounded-lg bg-secondary flex flex-col items-center card-hover">
+                    <i class="fa-brands fa-vuejs text-3xl text-primary mb-3"></i>
+                    <p class="text-sm font-medium">Vue</p>
+                </div>
+                <div class="p-4 rounded-lg bg-secondary flex flex-col items-center card-hover">
+                    <i class="fa-brands fa-react text-3xl text-primary mb-3"></i>
+                    <p class="text-sm font-medium">React</p>
+                </div>
+                <div class="p-4 rounded-lg bg-secondary flex flex-col items-center card-hover">
+                    <i class="fa-brands fa-node-js text-3xl text-primary mb-3"></i>
+                    <p class="text-sm font-medium">Node.js</p>
+                </div>
+                <div class="p-4 rounded-lg bg-secondary flex flex-col items-center card-hover">
+                    <i class="fa-brands fa-python text-3xl text-primary mb-3"></i>
+                    <p class="text-sm font-medium">Python</p>
+                </div>
+                <div class="p-4 rounded-lg bg-secondary flex flex-col items-center card-hover">
+                    <i class="fa-brands fa-java text-3xl text-primary mb-3"></i>
+                    <p class="text-sm font-medium">Java</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 加入我们 -->
+    <section id="join" class="screen section-fade bg-gradient-to-t from-secondary/40 to-white">
+        <div class="max-w-3xl mx-auto w-full px-6">
+            <h2 class="text-2xl md:text-3xl font-bold mb-3 text-center">加入我们</h2>
+            <p class="text-muted text-center mb-12 text-sm md:text-base">与我们一起交流成长</p>
+            <div class="bg-white rounded-xl p-8 shadow-md max-w-md mx-auto border border-border">
+                <div class="mb-8">
+                    <h3 class="font-semibold text-lg mb-4 flex items-center gap-2">
+                        <i class="fa-brands fa-qq text-primary"></i>QQ 交流群
+                    </h3>
+                    <p class="text-2xl font-bold text-primary">995974858</p>
+                    <p class="text-sm text-muted mt-3">欢迎所有技术爱好者加入交流学习</p>
+                </div>
+                <div class="pt-4 border-t border-border">
+                    <h3 class="font-semibold text-lg mb-2">工作室信息</h3>
+                    <p class="text-muted">成立时间：2023年6月23日</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部 -->
+    <footer class="py-6 text-center text-sm text-muted border-t border-border">
+        <p>流叶科技工作室 © 2023 - 2026 All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // 滚动动画
+        const sections = document.querySelectorAll('.section-fade');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+        sections.forEach(section => observer.observe(section));
+
+        // 移动端菜单
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+
+        menuBtn.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
+        closeMenu.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+    </script>
+</body>
+</html>
