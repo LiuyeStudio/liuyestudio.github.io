@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>流叶科技工作室</title>
-    <!-- favicon 图标设置 -->
+    <title>流叶科技工作室 - 专注技术交流与项目实践</title>
+
+    <!-- 👇 搜索引擎获取的工作室介绍（你要的核心功能）👇 -->
+    <meta name="description" content="流叶科技工作室成立于2023年6月23日，专注技术交流、项目实践与持续创新，为技术爱好者提供学习、成长、协作的优质平台，涵盖前端、后端、Java、Python等多领域技术。">
+    <meta name="keywords" content="流叶科技,流叶科技工作室,技术交流,项目实践,编程学习,前端开发,后端开发,Java,Python">
+    <meta name="author" content="流叶科技工作室">
+
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <!-- 兼容旧版IE -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -52,15 +56,13 @@
             }
         }
         html {
-            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
             scroll-padding-top: 70px;
-            scroll-padding-bottom: 60px;
         }
         body {
-            scroll-behavior: smooth;
+            overflow-x: hidden;
         }
         .screen {
-            scroll-snap-align: start;
             min-height: calc(100vh - 70px);
             display: flex;
             align-items: center;
@@ -70,30 +72,26 @@
         @media (max-width:768px) {
             .screen {
                 padding: 1.5rem 1rem;
-                min-height: calc(100vh - 70px);
-            }
-            html {
-                scroll-snap-type: none;
             }
         }
     </style>
 </head>
 
-<body class="bg-white font-sans text-dark scroll-smooth">
-    <!-- 顶部导航 → 已修复：完美垂直居中对齐 -->
-    <header class="sticky top-0 z-50 bg-white border-b border-border h-[70px]">
+<body class="bg-white font-sans text-dark">
+    <!-- 顶部导航 -->
+    <header class="sticky top-0 z-50 bg-white border-b border-border h-[70px] shadow-sm">
         <div class="max-w-4xl mx-auto px-5 w-full h-full flex justify-between items-center">
             <div class="text-lg font-semibold text-primary">流叶科技工作室</div>
             <nav class="hidden md:flex items-center gap-6">
-                <a href="#home" class="text-sm text-muted hover:text-primary transition-colors">首页</a>
-                <a href="#about" class="text-sm text-muted hover:text-primary transition-colors">关于</a>
-                <a href="#projects" class="text-sm text-muted hover:text-primary transition-colors">项目</a>
-                <a href="#stack" class="text-sm text-muted hover:text-primary transition-colors">技术</a>
-                <a href="#join" class="text-sm px-4 py-1.5 bg-primary text-white rounded-full">加入</a>
+                <a href="#home" class="text-sm text-muted hover:text-primary transition-colors nav-link">首页</a>
+                <a href="#about" class="text-sm text-muted hover:text-primary transition-colors nav-link">关于</a>
+                <a href="#projects" class="text-sm text-muted hover:text-primary transition-colors nav-link">项目</a>
+                <a href="#stack" class="text-sm text-muted hover:text-primary transition-colors nav-link">技术</a>
+                <a href="#join" class="text-sm px-4 py-1.5 bg-primary text-white rounded-full hover:opacity-90 transition-opacity nav-link">加入</a>
             </nav>
             <div class="md:hidden flex items-center gap-3">
-                <a href="#join" class="text-xs px-3 py-1 bg-primary text-white rounded-full">加入</a>
-                <button id="menuBtn" class="text-dark text-xl">
+                <a href="#join" class="text-xs px-3 py-1 bg-primary text-white rounded-full nav-link">加入</a>
+                <button id="menuBtn" class="text-dark text-xl p-1">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
@@ -102,14 +100,14 @@
 
     <!-- 移动端菜单 -->
     <div id="mobileMenu" class="fixed inset-0 bg-white z-50 flex items-center justify-center flex-col gap-6 text-lg hidden">
-        <button id="closeMenu" class="absolute top-6 right-6 text-2xl">
+        <button id="closeMenu" class="absolute top-6 right-6 text-2xl p-1">
             <i class="fa-solid fa-xmark"></i>
         </button>
-        <a href="#home" class="text-dark">首页</a>
-        <a href="#about" class="text-dark">关于</a>
-        <a href="#projects" class="text-dark">项目</a>
-        <a href="#stack" class="text-dark">技术</a>
-        <a href="#join" class="px-5 py-2 bg-primary text-white rounded-full">加入我们</a>
+        <a href="#home" class="text-dark hover:text-primary transition-colors nav-link">首页</a>
+        <a href="#about" class="text-dark hover:text-primary transition-colors nav-link">关于</a>
+        <a href="#projects" class="text-dark hover:text-primary transition-colors nav-link">项目</a>
+        <a href="#stack" class="text-dark hover:text-primary transition-colors nav-link">技术</a>
+        <a href="#join" class="px-5 py-2 bg-primary text-white rounded-full hover:opacity-90 transition-opacity nav-link">加入我们</a>
     </div>
 
     <!-- 首页 -->
@@ -118,67 +116,80 @@
             <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-5 text-dark">流叶科技工作室</h1>
             <p class="text-muted text-base md:text-lg mb-8">专注技术交流 · 持续创造价值｜2023年6月23日成立</p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="#join" class="px-7 py-3 bg-primary text-white rounded-full hover:opacity-90 transition-opacity shadow-sm">加入交流群</a>
-                <a href="#projects" class="px-7 py-3 border border-border rounded-full hover:border-primary hover:text-primary transition-colors">浏览项目</a>
+                <a href="#join" class="px-7 py-3 bg-primary text-white rounded-full hover:opacity-90 transition-opacity shadow-sm nav-link">加入交流群</a>
+                <a href="#projects" class="px-7 py-3 border border-border rounded-full hover:border-primary hover:text-primary transition-colors nav-link">浏览项目</a>
             </div>
         </div>
     </section>
 
-    <!-- 关于我们 -->
+    <!-- 关于我们 - 可点击跳转卡片 -->
     <section id="about" class="screen section-fade bg-white">
         <div class="max-w-3xl mx-auto w-full px-6">
             <h2 class="text-2xl md:text-3xl font-bold mb-3 text-center">工作室介绍</h2>
             <p class="text-muted text-center mb-12 text-sm md:text-base">了解我们的理念与方向</p>
             <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8">
-                <div class="p-6 rounded-xl bg-gradient-to-br from-secondary to-white shadow-sm card-hover">
+                <a href="#join" class="p-6 rounded-xl bg-gradient-to-br from-secondary to-white shadow-sm card-hover block nav-link">
                     <i class="fa-solid fa-lightbulb text-primary text-3xl mb-5"></i>
                     <h3 class="font-semibold text-lg mb-3">技术交流</h3>
                     <p class="text-sm text-muted">分享经验、共同学习、互助提升</p>
-                </div>
-                <div class="p-6 rounded-xl bg-gradient-to-br from-secondary to-white shadow-sm card-hover">
+                    <div class="mt-4 text-primary text-sm font-medium">了解更多 →</div>
+                </a>
+                <a href="#projects" class="p-6 rounded-xl bg-gradient-to-br from-secondary to-white shadow-sm card-hover block nav-link">
                     <i class="fa-solid fa-code text-primary text-3xl mb-5"></i>
                     <h3 class="font-semibold text-lg mb-3">项目实践</h3>
                     <p class="text-sm text-muted">从实战中积累、从协作中成长</p>
-                </div>
-                <div class="p-6 rounded-xl bg-gradient-to-br from-secondary to-white shadow-sm card-hover sm:col-span-2 md:col-span-1">
+                    <div class="mt-4 text-primary text-sm font-medium">了解更多 →</div>
+                </a>
+                <a href="#stack" class="p-6 rounded-xl bg-gradient-to-br from-secondary to-white shadow-sm card-hover sm:col-span-2 md:col-span-1 block nav-link">
                     <i class="fa-solid fa-rocket text-primary text-3xl mb-5"></i>
                     <h3 class="font-semibold text-lg mb-3">持续创新</h3>
                     <p class="text-sm text-muted">保持热爱、追求极致、不断突破</p>
-                </div>
+                    <div class="mt-4 text-primary text-sm font-medium">了解更多 →</div>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- 项目展示 -->
+    <!-- 项目展示 - 底部统一更多按钮 -->
     <section id="projects" class="screen section-fade bg-gradient-to-b from-secondary/50 to-secondary">
         <div class="max-w-3xl mx-auto w-full px-6">
             <h2 class="text-2xl md:text-3xl font-bold mb-3 text-center">项目展示</h2>
             <p class="text-muted text-center mb-12 text-sm md:text-base">我们打造的优质产品</p>
-            <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
+            
+            <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 mb-10">
                 <div class="bg-white rounded-xl p-6 border border-border shadow-sm card-hover">
                     <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                         <i class="fa-solid fa-globe text-primary"></i>
                     </div>
                     <h3 class="font-semibold text-lg mb-2">Minecraft</h3>
                     <p class="text-sm text-muted mb-5">制作优质模组及插件</p>
-                    <a href="#" class="text-primary text-sm font-medium">查看详情</a>
+                    <a href="#" class="text-primary text-sm font-medium hover:underline">查看详情</a>
                 </div>
+
                 <div class="bg-white rounded-xl p-6 border border-border shadow-sm card-hover">
                     <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                         <i class="fa-solid fa-users text-primary"></i>
                     </div>
                     <h3 class="font-semibold text-lg mb-2">技术社区平台</h3>
                     <p class="text-sm text-muted mb-5">各类相关抽象群聊</p>
-                    <a href="#" class="text-primary text-sm font-medium">查看详情</a>
+                    <a href="#" class="text-primary text-sm font-medium hover:underline">查看详情</a>
                 </div>
+
                 <div class="bg-white rounded-xl p-6 border border-border shadow-sm card-hover sm:col-span-2 md:col-span-1">
                     <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                         <i class="fa-solid fa-mobile text-primary"></i>
                     </div>
                     <h3 class="font-semibold text-lg mb-2">恐龙眨眼行为研究会</h3>
                     <p class="text-sm text-muted mb-5">Dinosaur Ocular Eyelid(DOE)</p>
-                    <a href="/doe" class="text-primary text-sm font-medium">查看详情</a>
+                    <a href="/doe" class="text-primary text-sm font-medium hover:underline">查看详情</a>
                 </div>
+            </div>
+
+            <!-- 统一居中【更多】按钮 -->
+            <div class="flex justify-center mt-4">
+                <a href="#" class="px-6 py-2.5 bg-primary text-white rounded-full hover:opacity-90 transition-opacity shadow-sm">
+                    查看更多项目
+                </a>
             </div>
         </div>
     </section>
@@ -252,7 +263,7 @@
     </footer>
 
     <script>
-        // 滚动动画
+        // 滚动渐入动画
         const sections = document.querySelectorAll('.section-fade');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -263,7 +274,7 @@
         }, { threshold: 0.15 });
         sections.forEach(section => observer.observe(section));
 
-        // 移动端菜单
+        // 移动端菜单交互
         const menuBtn = document.getElementById('menuBtn');
         const closeMenu = document.getElementById('closeMenu');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -273,6 +284,20 @@
         closeMenu.addEventListener('click', () => mobileMenu.classList.add('hidden'));
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        // 导航栏平滑滚动
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if(targetId.startsWith('#') && document.querySelector(targetId)) {
+                    e.preventDefault();
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
     </script>
 </body>
