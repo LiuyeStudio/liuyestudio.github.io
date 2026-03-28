@@ -9,8 +9,10 @@
     <meta name="keywords" content="流叶科技,流叶科技工作室,技术交流,项目实践,编程学习,前端开发,后端开发,Java,Python">
     <meta name="author" content="流叶科技工作室">
 
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- 浏览器标签图标 -->
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
@@ -80,7 +82,14 @@
     <!-- 顶部导航 -->
     <header class="sticky top-0 z-50 bg-white border-b border-border h-[70px] shadow-sm">
         <div class="max-w-4xl mx-auto px-5 w-full h-full flex justify-between items-center">
-            <div class="text-lg font-semibold text-primary">流叶科技工作室</div>
+            <!-- 导航栏LOGO -->
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded overflow-hidden flex items-center justify-center">
+                    <img src="./favicon.ico" alt="流叶科技LOGO" class="w-full h-full object-cover">
+                </div>
+                <span class="text-lg font-semibold text-primary">流叶科技工作室</span>
+            </div>
+            
             <nav class="hidden md:flex items-center gap-6">
                 <a href="#home" class="text-sm text-muted hover:text-primary transition-colors nav-link">首页</a>
                 <a href="#about" class="text-sm text-muted hover:text-primary transition-colors nav-link">关于</a>
