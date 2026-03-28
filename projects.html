@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>项目展示 - 流叶科技工作室</title>
+
+    <meta name="description" content="流叶科技工作室项目展示，包含游戏开发、社区平台、创意研究、自动化工具等实战项目">
+    <meta name="keywords" content="流叶科技,项目展示,我的世界,技术社区,自动化工具,DOE研究">
+    <meta name="author" content="流叶科技工作室">
+
+    <link rel="icon" href="./favicon.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4682DC',
+                        secondary: '#F7F8FA',
+                        dark: '#121212',
+                        muted: '#8A8A8A',
+                        border: '#EBEBEB'
+                    },
+                    fontFamily: {
+                        sans: ['-apple-system','BlinkMacSystemFont','Segoe UI','Roboto','Helvetica Neue','Arial','sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .section-fade {
+                opacity: 0;
+                transform: translateY(40px);
+                transition: opacity 1.4s ease, transform 1.4s ease;
+            }
+            .section-fade.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .card-hover {
+                transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+                background: #ffffff;
+            }
+        }
+        html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+        body { overflow-x: hidden; }
+    </style>
+</head>
+
+<body class="bg-white font-sans text-dark">
+
+<!-- 顶部导航（保留你原来的样式） -->
+<header class="sticky top-0 z-50 bg-white border-b border-border h-[70px] shadow-sm">
+    <div class="max-w-4xl mx-auto px-5 w-full h-full flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded overflow-hidden">
+                <img src="./favicon.png" alt="LOGO" class="w-full h-full object-cover">
+            </div>
+            <span class="text-lg font-semibold text-primary">流叶科技工作室</span>
+        </div>
+        <nav class="hidden md:flex items-center gap-6">
+            <a href="https://liuyekeji.github.io" class="text-sm text-muted hover:text-primary transition-colors">返回主页</a>
+            <a href="#" class="text-sm px-4 py-1.5 bg-primary text-white rounded-full hover:opacity-90 transition-opacity">项目展示</a>
+        </nav>
+        <div class="md:hidden flex items-center">
+            <button id="menuBtn" class="text-dark text-xl p-1"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </div>
+</header>
+
+<!-- 移动端菜单 -->
+<div id="mobileMenu" class="fixed inset-0 bg-white z-50 flex items-center justify-center flex-col gap-6 text-lg hidden">
+    <button id="closeMenu" class="absolute top-6 right-6 text-2xl p-1"><i class="fa-solid fa-xmark"></i></button>
+    <a href="https://liuyekeji.github.io" class="text-dark hover:text-primary transition-colors">返回主页</a>
+    <a href="#" class="px-5 py-2 bg-primary text-white rounded-full">项目展示</a>
+</div>
+
+<!-- 纯项目展示区域（独立页面核心） -->
+<section class="min-h-screen py-16 px-4 bg-gradient-to-b from-secondary/50 to-secondary section-fade">
+    <div class="max-w-4xl mx-auto w-full">
+        <h2 class="text-2xl md:text-3xl font-bold mb-3 text-center">项目展示</h2>
+        <p class="text-muted text-center mb-12 text-sm md:text-base">我们打造的优质产品与实战项目</p>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <!-- 项目1 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-border card-hover">
+                <div class="w-full bg-primary/10 p-8 flex items-center justify-center">
+                    <i class="fa-solid fa-globe text-primary text-5xl"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-bold text-xl">我的世界生态项目</h3>
+                        <span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">开发中</span>
+                    </div>
+                    <p class="text-sm text-muted mb-4">专注制作优质Minecraft模组、插件与服务端，打造沉浸式游戏体验</p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span class="text-xs bg-secondary px-2 py-1 rounded">Java</span>
+                        <span class="text-xs bg-secondary px-2 py-1 rounded">游戏开发</span>
+                    </div>
+                    <a href="#" class="text-primary text-sm font-medium hover:underline flex items-center gap-1">查看详情 <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                </div>
+            </div>
+
+            <!-- 项目2 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-border card-hover">
+                <div class="w-full bg-primary/10 p-8 flex items-center justify-center">
+                    <i class="fa-solid fa-users text-primary text-5xl"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-bold text-xl">技术社区平台</h3>
+                        <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded-full">已上线</span>
+                    </div>
+                    <p class="text-sm text-muted mb-4">多元化技术交流社区，汇聚编程、开发、创意与资源分享的综合平台</p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span class="text-xs bg-secondary px-2 py-1 rounded">全栈</span>
+                        <span class="text-xs bg-secondary px-2 py-1 rounded">社区</span>
+                    </div>
+                    <a href="#" class="text-primary text-sm font-medium hover:underline flex items-center gap-1">查看详情 <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                </div>
+            </div>
+
+            <!-- 项目3 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-border card-hover">
+                <div class="w-full bg-primary/10 p-8 flex items-center justify-center">
+                    <i class="fa-solid fa-paw text-primary text-5xl"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-bold text-xl">恐龙眨眼行为研究会</h3>
+                        <span class="text-xs bg-purple-100 text-purple-600 px-2 py-1 rounded-full">特色项目</span>
+                    </div>
+                    <p class="text-sm text-muted mb-4">DOE创意研究项目，专注趣味生物行为研究与创意内容开发</p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span class="text-xs bg-secondary px-2 py-1 rounded">创意</span>
+                        <span class="text-xs bg-secondary px-2 py-1 rounded">研究</span>
+                    </div>
+                    <a href="/doe" class="text-primary text-sm font-medium hover:underline flex items-center gap-1">查看详情 <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                </div>
+            </div>
+
+            <!-- 项目4 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-border card-hover">
+                <div class="w-full bg-primary/10 p-8 flex items-center justify-center">
+                    <i class="fa-solid fa-code text-primary text-5xl"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-bold text-xl">工作室官网</h3>
+                        <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded-full">已上线</span>
+                    </div>
+                    <p class="text-sm text-muted mb-4">流叶科技工作室官方展示网站，包含团队介绍、项目展示与技术分享</p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span class="text-xs bg-secondary px-2 py-1 rounded">前端</span>
+                        <span class="text-xs bg-secondary px-2 py-1 rounded">Tailwind</span>
+                    </div>
+                    <a href="#" class="text-primary text-sm font-medium hover:underline flex items-center gap-1">查看详情 <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                </div>
+            </div>
+
+            <!-- 项目5 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-border card-hover">
+                <div class="w-full bg-primary/10 p-8 flex items-center justify-center">
+                    <i class="fa-solid fa-robot text-primary text-5xl"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-bold text-xl">智能助手工具</h3>
+                        <span class="text-xs bg-blue-100 text-blue-600 px-2 py-1 rounded-full">内测中</span>
+                    </div>
+                    <p class="text-sm text-muted mb-4">多功能自动化工具集合，提升开发效率与日常工作便捷性</p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span class="text-xs bg-secondary px-2 py-1 rounded">Python</span>
+                        <span class="text-xs bg-secondary px-2 py-1 rounded">自动化</span>
+                    </div>
+                    <a href="#" class="text-primary text-sm font-medium hover:underline flex items-center gap-1">查看详情 <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                </div>
+            </div>
+
+            <!-- 项目6 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-border card-hover">
+                <div <div class="w-full bg-primary/10 p-8 flex items-center justify-center">
+                    <i class="fa-solid fa-database text-primary text-5xl"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-bold text-xl">资源管理系统</h3>
+                        <span class="text-xs bg-orange-100 text-orange-600 px-2 py-1 rounded-full">规划中</span>
+                    </div>
+                    <p class="text-sm text-muted mb-4">工作室内部资源管理与协作平台，高效管理文档、代码与素材</p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span class="text-xs bg-secondary px-2 py-1 rounded">全栈</span>
+                        <span class="text-xs bg-secondary px-2 py-1 rounded">管理</span>
+                    </div>
+                    <a href="#" class="text-primary text-sm font-medium hover:underline flex items-center gap-1">查看详情 <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="py-6 text-center text-sm text-muted border-t border-border">
+    <p>流叶科技工作室 © 2023 - 2026 All Rights Reserved</p>
+</footer>
+
+<script>
+    const sections = document.querySelectorAll('.section-fade');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => entry.isIntersecting && entry.target.classList.add('visible'));
+    }, { threshold: 0.15 });
+    sections.forEach(s => observer.observe(s));
+
+    const menuBtn = document.getElementById('menuBtn');
+    const closeMenu = document.getElementById('closeMenu');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.onclick = () => mobileMenu.classList.remove('hidden');
+    closeMenu.onclick = () => mobileMenu.classList.add('hidden');
+</script>
+</body>
+</html>
